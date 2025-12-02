@@ -7,29 +7,98 @@ interface University {
   climate: string;
   vagas2025: string;
   notaCorte2025: string;
+  vagas2024: string;
+  notaCorte2024: string;
 }
 
 // -------------------------
-//  ALL UNIVERSITIES (NON-EU 2025 ONLY)
+//  ALL UNIVERSITIES (2024 + 2025)
 // -------------------------
 const allUniversities: University[] = [
-  { name: "La Sapienza", ranking: "🇮🇹 #4 IT | 🌍 US #128 | QS #134 | THE #181", citySize: "Roma – 2.750.000", climate: "Mediterrâneo", vagas2025: "13", notaCorte2025: "65.8" },
-  { name: "Milano Statale", ranking: "🇮🇹 #3 IT | 🌍 US #156 | QS #276 | THE 201–250", citySize: "Milão – 1.370.000", climate: "Subtropical úmido", vagas2025: "15", notaCorte2025: "72.9" },
-  { name: "Pavia", ranking: "🇮🇹 #8 IT | 🌍 US #275 | QS #581–590 | THE 301–350", citySize: "Pavia – 74.000", climate: "Subtropical úmido", vagas2025: "40", notaCorte2025: "73" },
-  { name: "Bologna", ranking: "🇮🇹 #2 IT | 🌍 US #112 | QS #154 | THE #155", citySize: "Bolonha – 400.000", climate: "Subtropical úmido", vagas2025: "20", notaCorte2025: "70.3" },
-  { name: "Padova", ranking: "🇮🇹 #1 IT | 🌍 US #124 | QS #236 | THE 201–250", citySize: "Pádua – 208.000", climate: "Subtropical úmido", vagas2025: "25", notaCorte2025: "65.4" },
-  { name: "Roma Tor Vergata", ranking: "🇮🇹 #13 IT | 🌍 US #408 | QS #601–650 | THE 301–350", citySize: "Roma – 2.750.000", climate: "Mediterrâneo", vagas2025: "20", notaCorte2025: "69.1" },
-  { name: "Tor Vergata (Tirana)", ranking: "Campus internacional", citySize: "Tirana – 520.000", climate: "Mediterrâneo", vagas2025: "150", notaCorte2025: "0.0" },
-  { name: "Torino", ranking: "🇮🇹 #6 IT | 🌍 US #209 | QS #252 | THE 401–500", citySize: "Turim – 857.000", climate: "Subtropical úmido", vagas2025: "32", notaCorte2025: "-" },
-  { name: "Milano Bicocca", ranking: "🇮🇹 #14 IT | 🌍 US #413 | QS #481–490 | THE 251–300", citySize: "Milão – 1.370.000", climate: "Subtropical úmido", vagas2025: "18", notaCorte2025: "65.1" },
-  { name: "Federico II", ranking: "🇮🇹 #5 IT | 🌍 US #186 | QS #351–400 | THE 351–400", citySize: "Nápoles – 908.000", climate: "Mediterrânico", vagas2025: "45", notaCorte2025: "63.1" },
-  { name: "Parma", ranking: "🇮🇹 #26 IT | 🌍 US #487 | QS #701–750 | THE 501–600", citySize: "Parma – 199.000", climate: "Subtropical úmido", vagas2025: "45", notaCorte2025: "67.6" },
-  { name: "Messina", ranking: "🇮🇹 #29 IT | 🌍 US #573 | QS #751–760 | THE 501–600", citySize: "Messina – 221.000", climate: "Mediterrânico", vagas2025: "56", notaCorte2025: "58.2" },
-  { name: "Luigi Vanvitelli", ranking: "🇮🇹 — | 🌍 — | QS #1201–1400 | THE 501–600", citySize: "Caserta – 75.000", climate: "Mediterrânico", vagas2025: "50", notaCorte2025: "66.2" },
-  { name: "Bari", ranking: "🇮🇹 #31 IT | 🌍 US #603 | QS #801–850 | THE 501–600", citySize: "Bari – 320.000", climate: "Mediterrânico", vagas2025: "11", notaCorte2025: "49.3" },
-  { name: "Catania", ranking: "🇮🇹 #33 IT | 🌍 US #693 | QS #951–1000 | THE 601–800", citySize: "Catania – 310.000", climate: "Mediterrânico", vagas2025: "60", notaCorte2025: "61.6" },
-  { name: "Marche (Ancona)", ranking: "🇮🇹 — | 🌍 — | QS — | THE —", citySize: "Ancona – 100.000", climate: "Subtropical úmido", vagas2025: "60", notaCorte2025: "58.2" },
-  { name: "Cagliari", ranking: "🇮🇹 #36 IT | 🌍 US #653 | QS #716 | THE 601–800", citySize: "Cagliari – 147.000", climate: "Mediterrânico", vagas2025: "20", notaCorte2025: "54.2" }
+  { name: "La Sapienza", ranking: "🇮🇹 #4 IT | 🌍 US #128 | QS #134 | THE #181", citySize: "Roma – 2.750.000", climate: "Mediterrâneo",
+    vagas2025: "13", notaCorte2025: "65.8",
+    vagas2024: "13", notaCorte2024: "73.8"
+  },
+
+  { name: "Milano Statale", ranking: "🇮🇹 #3 IT | 🌍 US #156 | QS #276 | THE 201–250", citySize: "Milão – 1.370.000", climate: "Subtropical úmido",
+    vagas2025: "15", notaCorte2025: "72.9",
+    vagas2024: "15", notaCorte2024: "75.3"
+  },
+
+  { name: "Pavia", ranking: "🇮🇹 #8 IT | 🌍 US #275 | QS #581–590 | THE 301–350", citySize: "Pavia – 74.000", climate: "Subtropical úmido",
+    vagas2025: "40", notaCorte2025: "73",
+    vagas2024: "40 (1 Marco Polo)", notaCorte2024: "71.5"
+  },
+
+  { name: "Bologna", ranking: "🇮🇹 #2 IT | 🌍 US #112 | QS #154 | THE #155", citySize: "Bolonha – 400.000", climate: "Subtropical úmido",
+    vagas2025: "20", notaCorte2025: "70.3",
+    vagas2024: "20", notaCorte2024: "74.5"
+  },
+
+  { name: "Padova", ranking: "🇮🇹 #1 IT | 🌍 US #124 | QS #236 | THE 201–250", citySize: "Pádua – 208.000", climate: "Subtropical úmido",
+    vagas2025: "25", notaCorte2025: "65.4",
+    vagas2024: "25", notaCorte2024: "71.6"
+  },
+
+  { name: "Roma Tor Vergata", ranking: "🇮🇹 #13 IT | 🌍 US #408 | QS #601–650 | THE 301–350", citySize: "Roma – 2.750.000", climate: "Mediterrâneo",
+    vagas2025: "20", notaCorte2025: "69.1",
+    vagas2024: "15", notaCorte2024: "60.6"
+  },
+
+  { name: "Tor Vergata (Tirana)", ranking: "Campus internacional", citySize: "Tirana – 520.000", climate: "Mediterrâneo",
+    vagas2025: "150", notaCorte2025: "0.0",
+    vagas2024: "-", notaCorte2024: "-"
+  },
+
+  { name: "Torino", ranking: "🇮🇹 #6 IT | 🌍 US #209 | QS #252 | THE 401–500", citySize: "Turim – 857.000", climate: "Subtropical úmido",
+    vagas2025: "32", notaCorte2025: "-",
+    vagas2024: "32 (1 Marco Polo)", notaCorte2024: "70.8"
+  },
+
+  { name: "Milano Bicocca", ranking: "🇮🇹 #14 IT | 🌍 US #413 | QS #481–490 | THE 251–300", citySize: "Milão – 1.370.000", climate: "Subtropical úmido",
+    vagas2025: "18", notaCorte2025: "65.1",
+    vagas2024: "18", notaCorte2024: "72.7"
+  },
+
+  { name: "Federico II", ranking: "🇮🇹 #5 IT | 🌍 US #186 | QS #351–400 | THE 351–400", citySize: "Nápoles – 908.000", climate: "Mediterrânico",
+    vagas2025: "45", notaCorte2025: "63.1",
+    vagas2024: "25", notaCorte2024: "68.1"
+  },
+
+  { name: "Parma", ranking: "🇮🇹 #26 IT | 🌍 US #487 | QS #701–750 | THE 501–600", citySize: "Parma – 199.000", climate: "Subtropical úmido",
+    vagas2025: "45", notaCorte2025: "67.6",
+    vagas2024: "45", notaCorte2024: "59.1"
+  },
+
+  { name: "Messina", ranking: "🇮🇹 #29 IT | 🌍 US #573 | QS #751–760 | THE 501–600", citySize: "Messina – 221.000", climate: "Mediterrânico",
+    vagas2025: "56", notaCorte2025: "58.2",
+    vagas2024: "56", notaCorte2024: "61.8"
+  },
+
+  { name: "Luigi Vanvitelli", ranking: "🇮🇹 — | 🌍 — | QS #1201–1400 | THE 501–600", citySize: "Caserta – 75.000", climate: "Mediterrânico",
+    vagas2025: "50", notaCorte2025: "66.2",
+    vagas2024: "50", notaCorte2024: "63.2"
+  },
+
+  { name: "Bari", ranking: "🇮🇹 #31 IT | 🌍 US #603 | QS #801–850 | THE 501–600", citySize: "Bari – 320.000", climate: "Mediterrânico",
+    vagas2025: "11", notaCorte2025: "49.3",
+    vagas2024: "8", notaCorte2024: "65.8"
+  },
+
+  { name: "Catania", ranking: "🇮🇹 #33 IT | 🌍 US #693 | QS #951–1000 | THE 601–800", citySize: "Catania – 310.000", climate: "Mediterrânico",
+    vagas2025: "60", notaCorte2025: "61.6",
+    vagas2024: "30", notaCorte2024: "57.2"
+  },
+
+  { name: "Marche (Ancona)", ranking: "🇮🇹 — | 🌍 — | QS — | THE —", citySize: "Ancona – 100.000", climate: "Subtropical úmido",
+    vagas2025: "60", notaCorte2025: "58.2",
+    vagas2024: "60", notaCorte2024: "60.3"
+  },
+
+  { name: "Cagliari", ranking: "🇮🇹 #36 IT | 🌍 US #653 | QS #716 | THE 601–800", citySize: "Cagliari – 147.000", climate: "Mediterrânico",
+    vagas2025: "20", notaCorte2025: "54.2",
+    vagas2024: "20", notaCorte2024: "56.5"
+  }
 ];
 
 function getUniversityData(name: string): University | undefined {
@@ -206,7 +275,8 @@ export default function App() {
               <li key={uni} style={{ marginBottom: 12 }}>
                 <strong>{i + 1}. {uni}</strong><br />
                 <span style={{ fontSize: 13 }}>
-                  Clima: {data?.climate} | Ranking: {data?.ranking} | Cidade: {data?.citySize} | Vagas 2025: {data?.vagas2025} | Nota 2025: {data?.notaCorte2025}
+                  Clima: {data?.climate} | Ranking: {data?.ranking} | Cidade: {data?.citySize}  
+                  | Vagas 2025: {data?.vagas2025} | Nota 2025: {data?.notaCorte2025}
                 </span>
                 <div style={{ marginTop: 6 }}>
                   <button onClick={() => moveCombinedUp(i)} style={{ backgroundColor: '#2e7d32', color: 'white', border: 'none', borderRadius: 4, padding: '4px 8px', marginRight: 6 }} disabled={i === 0}>↑</button>
