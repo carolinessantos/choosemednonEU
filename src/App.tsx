@@ -192,7 +192,9 @@ function ListEditor({ title, list, setList, field }: {
                 {field === "climate" && <>Clima: {data?.climate}</>}
                 {field === "citySize" && <>População: {data?.citySize}</>}
                 {field === "vagas2025" && <>Vagas 2025: {data?.vagas2025}</>}
-                {field === "notaCorte2025" && <>Nota de corte 2025: {data?.notaCorte2025}</>}
+                {field === "notaCorte2025" && <>Nota 2025: {data?.notaCorte2025}</>}
+                {field === "vagas2024" && <>Vagas 2024: {data?.vagas2024}</>}
+                {field === "notaCorte2024" && <>Nota 2024: {data?.notaCorte2024}</>}
               </span>
               <div style={{ marginTop: 6 }}>
                 <button onClick={() => moveUp(i)} style={{ backgroundColor: '#2e7d32', color: 'white', border: 'none', borderRadius: 4, padding: '4px 8px', marginRight: 6 }} disabled={i === 0}>↑</button>
@@ -213,17 +215,20 @@ export default function App() {
   const [clima, setClima] = useState<string[]>(allUniversities.map(u => u.name));
   const [ranking, setRanking] = useState<string[]>(allUniversities.map(u => u.name));
   const [cidade, setCidade] = useState<string[]>(allUniversities.map(u => u.name));
-  const [vagas, setVagas] = useState<string[]>(allUniversities.map(u => u.name));
-  const [notaCorte, setNotaCorte] = useState<string[]>(allUniversities.map(u => u.name));
+  const [vagas2025, setVagas2025] = useState<string[]>(allUniversities.map(u => u.name));
+  const [nota2025, setNota2025] = useState<string[]>(allUniversities.map(u => u.name));
+  const [vagas2024, setVagas2024] = useState<string[]>(allUniversities.map(u => u.name));
+  const [nota2024, setNota2024] = useState<string[]>(allUniversities.map(u => u.name));
+
   const [combined, setCombined] = useState<string[]>([]);
 
   useEffect(() => {
     const combinedList = combineListsByPosition(
-      [clima, ranking, cidade, vagas, notaCorte],
+      [clima, ranking, cidade, vagas2025, nota2025, vagas2024, nota2024],
       allUniversities.length
     );
     setCombined(combinedList);
-  }, [clima, ranking, cidade, vagas, notaCorte]);
+  }, [clima, ranking, cidade, vagas2025, nota2025, vagas2024, nota2024]);
 
   const moveCombinedUp = (index: number) => {
     if (index === 0) return;
@@ -242,8 +247,8 @@ export default function App() {
   const copyFinalList = () => {
     const text = combined.map((uni, i) => {
       const d = getUniversityData(uni);
-      return `${i + 1}. ${uni} — Vagas 2025: ${d?.vagas2025} | Nota 2025: ${d?.notaCorte2025}`;
-    }).join("\n");
+      return `${i + 1}. ${uni}\n   2025 — Vagas: ${d?.vagas2025} | Nota: ${d?.notaCorte2025}\n   2024 — Vagas: ${d?.vagas2024} | Nota: ${d?.notaCorte2024}`;
+    }).join("\n\n");
     navigator.clipboard.writeText(text);
     alert("Lista final copiada para a área de transferência");
   };
@@ -256,27 +261,27 @@ export default function App() {
         <ListEditor title="Clima" list={clima} setList={setClima} field="climate" />
         <ListEditor title="Ranking" list={ranking} setList={setRanking} field="ranking" />
         <ListEditor title="Tamanho da cidade" list={cidade} setList={setCidade} field="citySize" />
-        <ListEditor title="Número de vagas (2025)" list={vagas} setList={setVagas} field="vagas2025" />
-        <ListEditor title="Notas de corte (2025)" list={notaCorte} setList={setNotaCorte} field="notaCorte2025" />
+        <ListEditor title="Número de vagas (2025)" list={vagas2025} setList={setVagas2025} field="vagas2025" />
+        <ListEditor title="Notas de corte (2025)" list={nota2025} setList={setNota2025} field="notaCorte2025" />
+        <ListEditor title="Número de vagas (2024)" list={vagas2024} setList={setVagas2024} field="vagas2024" />
+        <ListEditor title="Notas de corte (2024)" list={nota2024} setList={setNota2024} field="notaCorte2024" />
       </div>
 
       <section style={{ marginTop: 30 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <h2 style={{ fontWeight: "bold", margin: 0 }}>Lista final</h2>
-          <div>
-            <button onClick={copyFinalList} style={{ backgroundColor: "#007bff", color: "white", border: "none", borderRadius: 6, padding: '8px 12px', cursor: 'pointer', marginRight: 8 }}>📋 Copiar lista</button>
-          </div>
+          <button onClick={copyFinalList} style={{ backgroundColor: "#007bff", color: "white", border: "none", borderRadius: 6, padding: '8px 12px', cursor: 'pointer' }}>📋 Copiar lista</button>
         </div>
 
         <ol style={{ marginTop: 12 }}>
           {combined.map((uni, i) => {
             const data = getUniversityData(uni);
             return (
-              <li key={uni} style={{ marginBottom: 12 }}>
+              <li key={uni} style={{ marginBottom: 18 }}>
                 <strong>{i + 1}. {uni}</strong><br />
-                <span style={{ fontSize: 13 }}>
-                  Clima: {data?.climate} | Ranking: {data?.ranking} | Cidade: {data?.citySize}  
-                  | Vagas 2025: {data?.vagas2025} | Nota 2025: {data?.notaCorte2025}
+                <span style={{ fontSize: 13, whiteSpace: "pre-line" }}>
+                  2025 — Vagas: {data?.vagas2025} | Nota: {data?.notaCorte2025}{"\n"}
+                  2024 — Vagas: {data?.vagas2024} | Nota: {data?.notaCorte2024}
                 </span>
                 <div style={{ marginTop: 6 }}>
                   <button onClick={() => moveCombinedUp(i)} style={{ backgroundColor: '#2e7d32', color: 'white', border: 'none', borderRadius: 4, padding: '4px 8px', marginRight: 6 }} disabled={i === 0}>↑</button>
